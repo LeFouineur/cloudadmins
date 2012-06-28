@@ -1,8 +1,8 @@
 cloudadmins
-===========
+-----------
 
 INTRO
------
+=====
 
 Create SSH administrative accounts across your entire cloud for groups of
 administrators.
@@ -34,23 +34,24 @@ create this README, create some sample directories and run a demonstration.
 
 
 KNOWN BUGS
-----------
+==========
 
 
 1. No option to remove a user. (userdel -r username)
 
 
 AUTHOR(S)
----------
+=========
 
-[Twitter] (http://twitter.com/JamiesonBecker)
-[Homepage] (http://jamiesonbecker.com)
+*   [Twitter] (http://twitter.com/JamiesonBecker)
+
+*   [Homepage] (http://jamiesonbecker.com)
 
 
 LICENSE
--------
+=======
 
 Copyright (c) 2012 Jamieson Becker <jamieson@jamiesonbecker.com>
 
-Free Software Released Under The GPL version 2 Or Later (at your option)
+Free Software released under the GPL version 2 or later (at your option)
 
