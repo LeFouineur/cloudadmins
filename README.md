@@ -5,7 +5,50 @@ Important Notes
 ---------------
 
 This script requires bash. Please do not do fancy shell script shortcuts like wget -O- $url | bash as they'll mess up xargs.
-Just download it into /tmp somewhere and run it properly and nobody will get hurt :)
+Just download it into /tmp somewhere, make executable, and run it properly and nobody will get hurt. :) Also, this of course
+requires the use of SSH keys, and cannot work with SSH passwords. Shameless plug: for a proper enterprise solution, free for up to 20 servers,
+visit http://Userify.com/.
+
+Example installation/test:
+    cd /tmp/; mkdir test; cd test; wget https://raw.github.com/jamiesonbecker/cloudadmins/master/cloudadmins.sh; chmod +x cloudadmins.sh; ./cloudadmins.sh
+
+Expected output:
+
+    Walking Users..
+    Walking Hostgroups for user1..
+    Walking Hostgroups for user2..
+    Walking Hosts for hostgroupY..
+    Walking Hosts for hostgroupX..
+    Walking Hosts for hostgroupX..
+    error; please see ./errors/adduser/user1/hostX-a
+    error; please see ./errors/adduser/user2/hostX-a
+    error; please see ./errors/adduser/user1/hostX-f
+    error; please see ./errors/adduser/user1/hostX-b
+    error; please see ./errors/adduser/user1/hostY-e
+    error; please see ./errors/adduser/user1/hostY-g
+    error; please see ./errors/adduser/user1/hostY-d
+    error; please see ./errors/adduser/user1/hostY-a
+    error; please see ./errors/adduser/user1/hostX-d
+    error; please see ./errors/adduser/user1/hostX-e
+    error; please see ./errors/adduser/user1/hostY-f
+    error; please see ./errors/adduser/user2/hostX-g
+    error; please see ./errors/adduser/user2/hostX-c
+    error; please see ./errors/adduser/user1/hostX-c
+    error; please see ./errors/adduser/user2/hostX-e
+    error; please see ./errors/adduser/user2/hostX-b
+    error; please see ./errors/adduser/user1/hostY-b
+    error; please see ./errors/adduser/user1/hostX-g
+    error; please see ./errors/adduser/user2/hostX-d
+    error; please see ./errors/adduser/user1/hostY-c
+    error; please see ./errors/adduser/user2/hostX-f
+
+As we would expect, the fake hostnames give us an error, but they're just there as an example of how to run the example:
+
+    $ cat ./errors/adduser/user1/hostX-a
+    ssh: Could not resolve hostname hostX-a: Name or service not known
+
+
+
 
 
 INTRO
