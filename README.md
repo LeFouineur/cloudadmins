@@ -1,6 +1,13 @@
 cloudadmins
 -----------
 
+Important Notes
+---------------
+
+This script requires bash. Please do not do fancy shell script shortcuts like wget -O- $url | bash as they'll mess up xargs.
+Just download it into /tmp somewhere and run it properly and nobody will get hurt :)
+
+
 INTRO
 =====
 
