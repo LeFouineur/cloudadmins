@@ -6,8 +6,8 @@ Important Notes
 
 This script requires bash. Please do not do fancy shell script shortcuts like wget -O- $url | bash as they'll mess up xargs.
 Just download it into /tmp somewhere, make executable, and run it properly and nobody will get hurt. :) Also, this of course
-requires the use of SSH keys, and cannot work with SSH passwords. Shameless plug: for a proper enterprise solution, free for up to 20 servers,
-visit http://Userify.com/.
+requires the use of SSH keys, and cannot work with SSH passwords. Shameless plug: for a proper enterprise solution,
+see http://userify.com/.
 
 Example installation/test:
     cd /tmp/; mkdir test; cd test; wget https://raw.github.com/jamiesonbecker/cloudadmins/master/cloudadmins.sh; chmod +x cloudadmins.sh; ./cloudadmins.sh
