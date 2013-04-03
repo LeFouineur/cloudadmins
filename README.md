@@ -1,6 +1,44 @@
 cloudadmins
 -----------
 
+Intro
+=====
+
+Create SSH administrative accounts across your entire cloud for groups of
+administrators.
+
+This is a super-simple system to distribute your group of admins to
+hundreds of cloud instances. (A similar system has been used in production to
+approximately 500 real servers across distributed network systems.)
+
+It also adds each user to that server's *sudoers* (by default - you can just
+comment that line out).
+
+It's a very simple script - read through it and it will probably be very simple
+to customize.
+
+There's a built in demo -- running the cloudadmins script will automatically
+create this README, create some sample directories and run a demonstration.
+
+
+1.  Create a hostgroup in hostgroups/ with a single hostname on each line.
+
+
+2.  Create a user directory with the directory's name
+    as the user's username in the users/ directory.
+
+
+3.  Copy the user's public key as users/username/id_rsa.pub
+
+
+4.  Symlink the previously-created hostgroup into that user's directory.
+
+
+Unlike my Userify product, there is a real upwardly-scalable limit on how high
+this can scale due to the push model but this is a very simple solution that
+can go pretty far.
+
+
 Important Notes
 ---------------
 
@@ -51,43 +89,14 @@ As we would expect, the fake hostnames give us an error, but they're just there 
 
 
 
-INTRO
-=====
-
-Create SSH administrative accounts across your entire cloud for groups of
-administrators.
-
-This is a super-simple system to distribute your group of admins to
-potentially thousands of boxen.
-
-It also adds each user to that server's *sudoers* (by default - you can just
-comment that line out).
-
-It's a very simple script - read through it and it will probably be very simple
-to customize.
-
-There's a built in demo -- running the cloudadmins script will automatically
-create this README, create some sample directories and run a demonstration.
+KNOWN BUGS/LIMITATIONS
+======================
 
 
-1.  Create a hostgroup in hostgroups/ with a single hostname on each line.
+1.  No option to remove or perform other operations on a user. (userdel -r username)
 
+2.  "Push" model not very scalable (see userify.com for a far more powerful solution with an open agent.)
 
-2.  Create a user directory with the directory's name
-    as the user's username in the users/ directory.
-
-
-3.  Copy the user's public key as users/username/id_rsa.pub
-
-
-4.  Symlink the previously-created hostgroup into that user's directory.
-
-
-KNOWN BUGS
-==========
-
-
-1. No option to remove a user. (userdel -r username)
 
 
 AUTHOR(S)
