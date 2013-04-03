@@ -9,7 +9,7 @@ administrators.
 
 This is a super-simple system to distribute your group of admins to
 hundreds of cloud instances. (A similar system has been used in production to
-approximately 500 real servers across distributed network systems.)
+approximately 500 real servers across distributed networks.)
 
 It also adds each user to that server's *sudoers* (by default - you can just
 comment that line out).
