@@ -1,8 +1,8 @@
 cloudadmins
------------
+===========
 
 Intro
-=====
+-----
 
 Create SSH administrative accounts across your entire cloud for groups of
 administrators.
@@ -89,8 +89,8 @@ As we would expect, the fake hostnames give us an error, but they're just there 
 
 
 
-KNOWN BUGS/LIMITATIONS
-======================
+Known bugs/limitations
+----------------------
 
 
 1.  No option to remove or perform other operations on a user. (userdel -r username)
@@ -99,16 +99,18 @@ KNOWN BUGS/LIMITATIONS
 
 
 
-AUTHOR(S)
-=========
+Author
+------
 
-*   [Twitter] (http://twitter.com/JamiesonBecker)
+*   Userify: [http://userify.com]
 
-*   [Homepage] (http://jamiesonbecker.com)
+*   Twitter: [http://twitter.com/JamiesonBecker]
+
+*   Author Homepage: [http://jamiesonbecker.com]
 
 
-LICENSE
-=======
+License
+-------
 
 Copyright (c) 2012 Jamieson Becker <jamieson@jamiesonbecker.com>
 
