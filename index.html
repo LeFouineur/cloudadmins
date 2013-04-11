@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <title>Cloudadmins by jamiesonbecker</title>
+  </head>
+
+  <body>
+    <div id="container">
+      <div class="inner">
+
+        <header>
+          <h1>Cloudadmins</h1>
+          <h2>Create SSH administrative accounts across your entire cloud for groups of administrators.</h2>
+        </header>
+
+        <section id="downloads" class="clearfix">
+          <a href="https://github.com/jamiesonbecker/cloudadmins/zipball/master" id="download-zip" class="button"><span>Download .zip</span></a>
+          <a href="https://github.com/jamiesonbecker/cloudadmins/tarball/master" id="download-tar-gz" class="button"><span>Download .tar.gz</span></a>
+          <a href="https://github.com/jamiesonbecker/cloudadmins" id="view-on-github" class="button"><span>View on GitHub</span></a>
+        </section>
+
+        <hr>
+
+        <section id="main_content">
+          <h1>cloudadmins</h1>
+
+<h2>Intro</h2>
+
+<p>Create SSH administrative accounts across your entire cloud for groups of
+administrators.</p>
+
+<p>This is a super-simple system to distribute your group of admins to
+hundreds of cloud instances. (A similar system has been used in production to
+approximately 500 real servers across distributed networks.)</p>
+
+<p>It also adds each user to that server's <em>sudoers</em> (by default - you can just
+comment that line out).</p>
+
+<p>It's a very simple script - read through it and it will probably be very simple
+to customize.</p>
+
+<p>There's a built in demo -- running the cloudadmins script will automatically
+create this README, create some sample directories and run a demonstration.</p>
+
+<ol>
+<li><p>Create a hostgroup in hostgroups/ with a single hostname on each line.</p></li>
+<li><p>Create a user directory with the directory's name
+as the user's username in the users/ directory.</p></li>
+<li><p>Copy the user's public key as users/username/id_rsa.pub</p></li>
+<li><p>Symlink the previously-created hostgroup into that user's directory.</p></li>
+</ol><p>Unlike my Userify product, there is a real upwardly-scalable limit on how high
+this can scale due to the push model but this is a very simple solution that
+can go pretty far.</p>
+
+<h2>Important Notes</h2>
+
+<p>This script requires bash. Please do not do fancy shell script shortcuts like wget -O- $url | bash as they'll mess up xargs.
+Just download it into /tmp somewhere, make executable, and run it properly and nobody will get hurt. :) Also, this of course
+requires the use of SSH keys, and cannot work with SSH passwords. Shameless plug: for a proper enterprise solution,
+see <a href="http://userify.com/">http://userify.com/</a>.</p>
+
+<p>Example installation/test:
+    cd /tmp/; mkdir test; cd test; wget <a href="https://raw.github.com/jamiesonbecker/cloudadmins/master/cloudadmins.sh">https://raw.github.com/jamiesonbecker/cloudadmins/master/cloudadmins.sh</a>; chmod +x cloudadmins.sh; ./cloudadmins.sh</p>
+
+<p>Expected output:</p>
+
+<pre><code>Walking Users..
+Walking Hostgroups for user1..
+Walking Hostgroups for user2..
+Walking Hosts for hostgroupY..
+Walking Hosts for hostgroupX..
+Walking Hosts for hostgroupX..
+error; please see ./errors/adduser/user1/hostX-a
+error; please see ./errors/adduser/user2/hostX-a
+error; please see ./errors/adduser/user1/hostX-f
+error; please see ./errors/adduser/user1/hostX-b
+error; please see ./errors/adduser/user1/hostY-e
+error; please see ./errors/adduser/user1/hostY-g
+error; please see ./errors/adduser/user1/hostY-d
+error; please see ./errors/adduser/user1/hostY-a
+error; please see ./errors/adduser/user1/hostX-d
+error; please see ./errors/adduser/user1/hostX-e
+error; please see ./errors/adduser/user1/hostY-f
+error; please see ./errors/adduser/user2/hostX-g
+error; please see ./errors/adduser/user2/hostX-c
+error; please see ./errors/adduser/user1/hostX-c
+error; please see ./errors/adduser/user2/hostX-e
+error; please see ./errors/adduser/user2/hostX-b
+error; please see ./errors/adduser/user1/hostY-b
+error; please see ./errors/adduser/user1/hostX-g
+error; please see ./errors/adduser/user2/hostX-d
+error; please see ./errors/adduser/user1/hostY-c
+error; please see ./errors/adduser/user2/hostX-f
+</code></pre>
+
+<p>As we would expect, the fake hostnames give us an error, but they're just there as an example of how to run the example:</p>
+
+<pre><code>$ cat ./errors/adduser/user1/hostX-a
+ssh: Could not resolve hostname hostX-a: Name or service not known
+</code></pre>
+
+<h2>Known bugs/limitations</h2>
+
+<ol>
+<li><p>No option to remove or perform other operations on a user. (userdel -r username)</p></li>
+<li><p>"Push" model not very scalable (see userify.com for a far more powerful solution with an open agent.)</p></li>
+</ol><h2>Author</h2>
+
+<ul>
+<li><p>Userify: [<a href="http://userify.com">http://userify.com</a>]</p></li>
+<li><p>Twitter: [<a href="http://twitter.com/JamiesonBecker">http://twitter.com/JamiesonBecker</a>]</p></li>
+<li><p>Author Homepage: [<a href="http://jamiesonbecker.com">http://jamiesonbecker.com</a>]</p></li>
+</ul><h2>License</h2>
+
+<p>Copyright (c) 2012 Jamieson Becker <a href="mailto:jamieson@jamiesonbecker.com">jamieson@jamiesonbecker.com</a></p>
+
+<p>Free Software released under the GPL version 2 or later (at your option)</p>
+        </section>
+
+        <footer>
+          Cloudadmins is maintained by <a href="https://github.com/jamiesonbecker">jamiesonbecker</a><br>
+          This page was generated by <a href="http://pages.github.com">GitHub Pages</a>. Tactile theme by <a href="http://twitter.com/jasonlong">Jason Long</a>.
+        </footer>
+
+        
+      </div>
+    </div>
+  </body>
+</html>
