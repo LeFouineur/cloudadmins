@@ -34,7 +34,7 @@ create this README, create some sample directories and run a demonstration.
 4.  Symlink the previously-created hostgroup into that user's directory.
 
 
-Unlike the Userify product, there is a real upwardly-scalable limit on how high
+Unlike the [Userify.com](http://userify.com) product, there is a real upwardly-scalable limit on how high
 this can scale due to the push model but this is a very simple solution that
 can go pretty far.
 
