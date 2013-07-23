@@ -5,7 +5,8 @@ Intro
 -----
 
 Create SSH administrative accounts across your entire cloud for groups of
-administrators.
+administrators. (Note: there is a limit of around 250-500 servers before delays become quite significant. See [Userify.com](http://userify.com) for an enterprise solution.)
+
 
 This is a super-simple system to distribute your group of admins to
 hundreds of cloud instances. (A similar system has been used in production to
@@ -34,18 +35,12 @@ create this README, create some sample directories and run a demonstration.
 4.  Symlink the previously-created hostgroup into that user's directory.
 
 
-Unlike the [Userify.com](http://userify.com) product, there is a real upwardly-scalable limit on how high
-this can scale due to the push model but this is a very simple solution that
-can go pretty far.
-
-
 Important Notes
 ---------------
 
 This script requires bash. Please do not do fancy shell script shortcuts like wget -O- $url | bash as they'll mess up xargs.
 Just download it into /tmp somewhere, make executable, and run it properly and nobody will get hurt. :) Also, this of course
-requires the use of SSH keys, and cannot work with SSH passwords. Shameless plug: for a proper enterprise solution,
-see http://userify.com/.
+requires the use of SSH keys, and cannot work with SSH passwords.
 
 Example installation/test:
     cd /tmp/; mkdir test; cd test; wget https://raw.github.com/jamiesonbecker/cloudadmins/master/cloudadmins.sh; chmod +x cloudadmins.sh; ./cloudadmins.sh
