@@ -5,7 +5,8 @@ Intro
 -----
 
 Create SSH administrative accounts across your entire cloud for groups of
-administrators. (Note: there is a limit of around 250-500 servers before delays become quite significant. Try [userify](http://userify.com) for an enterprise solution.)
+administrators. (Note: there is a limit of around 250-500 servers before
+forking delays become significant. Try [userify](http://userify.com) for an enterprise solution.)
 
 
 This is a super-simple system to distribute your group of admins to
